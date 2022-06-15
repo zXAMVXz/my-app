@@ -3,10 +3,31 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Login from './pages/Login';
+import DashboardScreen from './pages/DashboardScreen';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+import {NotificationContainer} from 'react-notifications';
+
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Login />
+    
+      <Provider store={store}>
+        <BrowserRouter>
+          
+            <Routes>
+              <Route path='/login' element={<Login/>} />
+              <Route path='/dashboard' element={<DashboardScreen/>} />
+
+            </Routes>
+          <NotificationContainer />
+          
+        </BrowserRouter>
+      </Provider>
+      {/* notificaciones */}
+      
+    
   </React.StrictMode>,
   document.getElementById('root')
 );
