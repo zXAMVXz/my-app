@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Login from './pages/Login';
-import DashboardScreen from './pages/DashboardScreen';
+import Login from './pages/Login/Login';
+import DashboardScreen from './pages/Dashboard/DashboardScreen';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import {NotificationContainer} from 'react-notifications';
@@ -21,7 +21,7 @@ ReactDOM.render(
               <Route path='/dashboard' element={<DashboardScreen/>} />
 
             </Routes>
-          <NotificationContainer />
+          {/* <NotificationContainer /> */}
           
         </BrowserRouter>
       </Provider>
