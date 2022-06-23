@@ -1,0 +1,19 @@
+
+
+
+.containerDashboard{
+    display: flex;
+    flex: 1;
+    background-color: #3E0075;
+
+    .infoContainer{
+        display: flex;
+        flex: 2;
+        justify-content: start;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        flex: 1;
+        padding: 20px;
+        
+    }
+}

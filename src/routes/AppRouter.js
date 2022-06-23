@@ -1,26 +1,46 @@
 
 
 import React from 'react'
-import { Routes, Route, Outlet, Link } from "react-router-dom";
-import { HomeScreen } from '../pages/Home/HomeScreen';
-import Login from '../pages/Login/LoginScreen';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import  DashboardScreen  from '../pages/Dashboard/DashboardScreen';
+import { useNavigate } from 'react-router';
+import  Login  from '../pages/Login/Login';
+import { DashboardRoutes } from './DashboarRouter';
 export const AppRouter = () => {
-    return (
-        // <Routes>
-        //     <Route path="/" element={<Login />}>
-        //         <Route>
-        //             <Route path='/home' element={ <HomeScreen/> } />
-        //         </Route>
-        //     </Route>
-            
-        // </Routes>
-        <Routes>
-            <Route path="/" element={<Login />} />
-            {/* <Route path="login" element={<Login />} /> */}
-            <Route path="/Home" element={<HomeScreen />} />
+    const navigate = useNavigate();
+    const { status } = useSelector( state => state.auth );
+    console.log(status);
 
-            <Route path="*" element={<Login />} />
-            
-        </Routes>
+    //loading
+    // if( status === 'checking'){
+    //     return 
+    // }
+
+    // if( status === 'authenticated' ){
+        
+    //     navigate('/dashboard',{replace:true}); 
+    // } 
+
+
+    return (
+        
+            <Routes>
+
+                {
+                    (status === 'authenticated')
+                    ? <Route path="/*" element={ <DashboardRoutes /> } />
+                    : <Route path='login' element={ <Login /> } />
+                }
+
+                {/* <Route path='dashboard' element={ <DashboardScreen /> } />
+                <Route path='login' element={ <Login /> } /> */}
+                <Route path="/*" element={<Navigate to="/login" replace={true} />} />
+            </Routes>
+
+          //{/* <NotificationContainer /> */}
+          
+        
+
     )
 }
