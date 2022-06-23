@@ -16,7 +16,7 @@ import CatchingPokemonTwoToneIcon from '@mui/icons-material/CatchingPokemonTwoTo
 import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 const  NavBarComponent = () => {
   return (
-        <Box sx={{ width: '20%', maxWidth: 360, bgcolor: '#8039DF' }}>
+        <Box sx={{ width: '20%', maxWidth: 360, bgcolor: '#8039DF', position:'fixed', height:'100vh' }}>
             <nav aria-label="main mailbox folders">
                 <List>
                     <img className="logoNbar" src={require('../../assets/logo_pokemon.png')} />
