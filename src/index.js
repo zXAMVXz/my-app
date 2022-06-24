@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Login from './pages/Login/Login';
-import DashboardScreen from './pages/Dashboard/DashboardScreen';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 import {NotificationContainer} from 'react-notifications';
@@ -17,7 +15,9 @@ ReactDOM.render(
         <BrowserRouter>
           <AppRouter/>
         </BrowserRouter>
-          {/* <NotificationContainer /> */}  
+
+        {/* Notifications Component */}
+        <NotificationContainer />  
       </Provider>
   </React.StrictMode>,
   document.getElementById('root')
